@@ -1,0 +1,27 @@
+language: python
+env:
+  DATABASE_URL="dbname='lenny' host='127.0.0.1' port='5432' user='postgres' password=''"
+  DATABASE_TEST_URL="dbname='lenny' host='127.0.0.1' port='5432' user='postgres' password=''"
+  APP_SETTINGS="testing"
+python:
+  - "3.7"
+
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls codecov
+
+services:
+  - postgresql
+addons:
+  postgresql: "9.6"
+
+before_script:
+  - psql -c 'CREATE DATABASE lenny' -U postgres
+  - psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public to postgres ;" -U postgres
+
+script:
+  - nosetests --with-coverage --cover-package=app app/tests
+
+after_success:
+  - coveralls
+  - codecov --token=c280e799-deef-4c71-acac-d41c85547d56
