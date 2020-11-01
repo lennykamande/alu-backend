@@ -11,7 +11,7 @@ import json
 from flask import Flask, jsonify, request, make_response
 from instance.config import app_config
 from werkzeug.contrib.fixers import ProxyFix
-
+from flask_cors import CORS
 # local imports
 from .data import data
 
@@ -96,6 +96,7 @@ def create_app(config_name='development'):
     """This function sets up and returns the application"""
 
     app = Flask(__name__, instance_relative_config=True)
+    CORS(app, resources={r"/*": {"origins": "*"}})
     app.url_map.strict_slashes = False
     app.config.from_object(app_config["development"])
     app.config.from_pyfile('config.py')
