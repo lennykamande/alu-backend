@@ -2,7 +2,7 @@
 .cache
 .mypy_cache\
 .env
-
+env/
 /dist
 .coverage
 .pytest_cache/
