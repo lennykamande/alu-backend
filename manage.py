@@ -4,13 +4,14 @@ import unittest
 # class for handling a set of commands
 from flask_script import Manager
 import nose
+from flask_cors import CORS
 from app import db, create_app, init_test_db
 
 # initialize the app with all its configurations
 app = create_app(config_name=os.getenv('APP_SETTINGS'))
 
 manager = Manager(app)
-
+CORS(manager)
 
 @manager.command
 def test():

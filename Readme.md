@@ -1,4 +1,4 @@
-# StackOverflow-lite
+# ALU Tech Assesment
 
 ## Introduction
 
@@ -58,7 +58,7 @@ _Step 3_
 ```
 export FLASK_APP="run.py"
 export APP_SETTINGS="development"
-export DATABASE_URL="dbname='database_name' host='localhost' port='5432' user='postgres' password='root'"
+export DATABASE_URL="dbname='lenny' host='localhost' port='5432' user='postgres' password='root'"
 export DATABASE_TEST_URL="dbname='test_database_name' host='localhost' port='5432' user='postgress' password='root'"
 ```
 

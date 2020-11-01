@@ -12,12 +12,6 @@ class Config(object):
     DATABASE_URL = os.getenv("DATABASE_URL")
 
 
-"""
-    "dbname='stackoverflow' host='localhost'\
-                 port='5432' user='Mcogol' password='root'"
-"""
-
-
 class DevelopmentConfig(Config):
     """Development phase configurations"""
     DEBUG = True

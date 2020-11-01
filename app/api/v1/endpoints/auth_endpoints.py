@@ -124,7 +124,7 @@ class AuthLogin(Resource):
             message="success",
             AuthToken=token.decode('utf-8'),
             name=name,
-            date_created=date_created
+            date_created=date_created,
         )
         return resp, 200
 
